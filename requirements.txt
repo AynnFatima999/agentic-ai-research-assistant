@@ -4,5 +4,6 @@ streamlit
 requests
 beautifulsoup4
 ddgs
+openai
 python-dotenv
 pydantic
