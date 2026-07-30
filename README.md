@@ -5,6 +5,11 @@ An AI-powered research assistant that autonomously searches the web, collects in
 This project demonstrates the fundamentals of **Agentic AI**, including AI agents, tool usage, web search integration, and LLM-based reasoning.
 
 ---
+## 🚀 Live Demo
+
+- Frontend: [https://<streamlit-url>](https://agentic-ai-research-assistant-aynn.streamlit.app/)
+- Backend API: https://agentic-ai-research-assistant-production-6382.up.railway.app
+
 
 # 🚀 Features
 
