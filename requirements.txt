@@ -7,3 +7,7 @@ ddgs
 openai
 python-dotenv
 pydantic
+sse-starlette
+reportlab
+slowapi
+cachetools

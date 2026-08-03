@@ -1,25 +1,46 @@
-# Virtual Environment
+# =========================
+# Python
+# =========================
 venv/
 .venv/
-
-# Python
 __pycache__/
 *.pyc
 *.pyo
 
+# =========================
 # Environment
+# =========================
 .env
+backend/.env
+frontend/.env.local
+frontend/.env
 
+# =========================
+# Next.js / Node
+# =========================
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+
+# =========================
+# Streamlit
+# =========================
+.streamlit/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
 # IDE
+# =========================
 .vscode/
 .idea/
 
+# =========================
 # OS
+# =========================
 .DS_Store
 Thumbs.db
-
-# Streamlit
-.streamlit/
-
-# Logs
-*.log
