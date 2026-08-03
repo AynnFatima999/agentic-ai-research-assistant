@@ -1,79 +1,148 @@
 # 🤖 Agentic AI Research Assistant
 
-An AI-powered research assistant that autonomously searches the web, collects information, extracts useful content, and generates structured research responses using an LLM-powered agent workflow.
+An AI-powered research assistant that autonomously researches topics from the web, analyzes information using Large Language Models (LLMs), generates structured summaries, provides source references, and exports professional PDF research reports.
 
-This project demonstrates the fundamentals of **Agentic AI**, including AI agents, tool usage, web search integration, and LLM-based reasoning.
-
----
 ## 🚀 Live Demo
 
-- Frontend: [https://<streamlit-url>](https://agentic-ai-research-assistant-aynn.streamlit.app/)
-- Backend API: https://agentic-ai-research-assistant-production-6382.up.railway.app
+Frontend:
+https://agentic-ai-research-assistant-j485ko6gl-aynprojects.vercel.app/
 
+Backend:
+https://agentic-ai-research-assistant-production-6382.up.railway.app/
 
-# 🚀 Features
+---
 
-- 🔎 AI-powered web research
-- 🌐 Web search integration
-- 📄 Automatic webpage content extraction
-- 🧠 LLM-powered response generation
-- 🤖 Agent-based research workflow
-- ⚡ FastAPI backend API
-- 🎨 Streamlit interactive interface
-- 🔐 Secure API key management using environment variables
+# ✨ Features
+
+## 🔎 AI Research Workflow
+
+- Automated topic research using AI agents
+- Web search and information gathering
+- Content extraction from sources
+- LLM-powered analysis and summarization
+
+## 🤖 Agentic AI Capabilities
+
+- Agent-based research workflow
+- Tool calling architecture
+- External tool integration
+- Context-aware information processing
+
+## 📊 Real-Time Progress
+
+- Server-Sent Events (SSE) streaming
+- Live research status updates
+- Progress tracking during execution
+
+## 📝 Research Output
+
+- Configurable summary length:
+  - Short
+  - Medium
+  - Long
+
+- Structured results:
+  - Summary
+  - Key Points
+  - References
+
+## 📄 Export
+
+- Generate professional PDF research reports
+- Download reports directly from UI
+
+## 🛡️ Reliability
+
+- API rate limiting
+- Error handling
+- Validation
+- Robust backend service layer
+
+## 🎨 User Interface
+
+- Modern dark themed UI
+- Responsive design
+- Glassmorphism components
+- Animated experience
 
 ---
 
 # 🏗️ System Architecture
 
 ```
-User
- |
- | Research Query
- ↓
-Streamlit Frontend
- |
- ↓
-FastAPI Backend
- |
- ↓
-AI Research Agent
- |
- ├── Web Search Tool
- |
- ├── Content Parser
- |
- └── OpenRouter LLM
- |
- ↓
-Generated Research Report
+                         User
+                           |
+                           |
+                    Next.js Frontend
+                           |
+                           |
+                    FastAPI Backend
+                           |
+                           |
+                  Research Service Layer
+                           |
+                           |
+                    Research Agent
+                           |
+        -----------------------------------
+        |                 |               |
+        |                 |               |
+   Web Search       Content Parser    LLM Service
+        |                 |               |
+        -----------------------------------
+                           |
+                           |
+                 Structured Research Report
+                           |
+              -----------------------------
+              |             |             |
+          Summary      Key Points    References
+                           |
+                           |
+                       PDF Export
 ```
 
 ---
 
 # 🛠️ Tech Stack
 
+## Frontend
+
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+
 ## Backend
+
 - Python
 - FastAPI
+- Pydantic
+- SSE Streaming
 - Uvicorn
 
-## AI / LLM
+## AI & Automation
+
 - Agentic AI Workflow
-- OpenRouter API
-- Large Language Models (LLMs)
+- LLM Integration
+- Tool Calling
+- Web Research Pipeline
 
-## AI Tools
-- DuckDuckGo Search
+## Web Processing
+
+- Search APIs
 - BeautifulSoup
-- Web Content Extraction
+- Content Extraction
 
-## Frontend
-- Streamlit
+## Deployment
 
-## Development
-- Git & GitHub
-- Python Virtual Environment
+Frontend:
+
+- Vercel
+
+Backend:
+
+- Railway
 
 ---
 
@@ -83,65 +152,76 @@ Generated Research Report
 agentic-ai-research-assistant/
 
 │
-├── app/
-│   ├── main.py
+├── backend/
+│
 │   ├── agents/
 │   │   └── research_agent.py
+│   │
+│   ├── routes/
+│   │   └── research.py
+│   │
+│   ├── services/
+│   │   ├── research_service.py
+│   │   ├── llm_service.py
+│   │   └── pdf_service.py
 │   │
 │   ├── tools/
 │   │   ├── web_search.py
 │   │   └── content_parser.py
 │   │
-│   ├── services/
-│   │   └── llm_service.py
+│   ├── models/
+│   │   └── schemas.py
 │   │
-│   └── config.py
+│   └── main.py
+│
 │
 ├── frontend/
-│   └── app.py
 │
-├── requirements.txt
-├── .env
+│   ├── app/
+│   │
+│   ├── components/
+│   │
+│   ├── hooks/
+│   │
+│   ├── lib/
+│   │
+│   └── types/
+│
+│
 └── README.md
 ```
 
 ---
 
-# ⚙️ Installation & Setup
+# ⚙️ Local Development Setup
 
-## 1. Clone Repository
+## Backend Setup
+
+### 1. Clone Repository
 
 ```bash
-git clone <repository-url>
-
-cd agentic-ai-research-assistant
+git clone https://github.com/AynnFatima999/agentic-ai-research-assistant.git
 ```
 
 ---
 
-## 2. Create Virtual Environment
+### 2. Create Virtual Environment
 
 ```bash
-python -m venv venv
+python -m venv .venv
 ```
 
-Activate environment:
+Activate:
 
 ### Windows
 
 ```bash
-venv\Scripts\activate
-```
-
-### Mac/Linux
-
-```bash
-source venv/bin/activate
+.venv\Scripts\activate
 ```
 
 ---
 
-## 3. Install Dependencies
+### 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -149,124 +229,220 @@ pip install -r requirements.txt
 
 ---
 
-# 🔑 Environment Variables
+### 4. Configure Environment Variables
 
-Create a `.env` file in the project root:
+Create:
 
-```env
-OPENROUTER_API_KEY=your_openrouter_api_key
+```
+.env
 ```
 
-Get your API key from:
+Example:
 
-https://openrouter.ai/
+```env
+OPENAI_API_KEY=your_api_key
+```
 
 ---
 
-# ▶️ Running the Application
-
-## Start Backend Server
+### 5. Run Backend
 
 ```bash
-uvicorn app.main:app --reload
+uvicorn backend.main:app --reload
 ```
 
-Backend:
+Backend will run:
 
 ```
 http://127.0.0.1:8000
 ```
 
-API Documentation:
-
-```
-http://127.0.0.1:8000/docs
-```
-
 ---
 
-## Start Frontend
+# Frontend Setup
 
-Open another terminal:
+Navigate:
 
 ```bash
-streamlit run frontend/app.py
+cd frontend
+```
+
+Install packages:
+
+```bash
+npm install
+```
+
+Create:
+
+```
+.env.local
+```
+
+Add:
+
+```env
+NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
+```
+
+Run:
+
+```bash
+npm run dev
 ```
 
 Frontend:
 
 ```
-http://localhost:8501
+http://localhost:3000
 ```
 
 ---
 
-# 🔄 How It Works
+# 🔌 API Endpoints
 
-1. User enters a research query.
-2. AI Agent analyzes the request.
-3. Agent performs web search.
-4. Relevant webpage content is extracted.
-5. Extracted information is sent to the LLM.
-6. AI generates a structured research response.
+## Health Check
+
+```
+GET /
+```
+
+Response:
+
+```json
+{
+  "message": "Agentic AI Research Assistant API is running!"
+}
+```
 
 ---
 
-# 🧪 Example
-
-User Query:
+## Research Generation
 
 ```
-Explain the latest trends in Agentic AI
+POST /research/
 ```
 
-Agent Workflow:
+Request:
+
+```json
+{
+  "topic": "Artificial Intelligence",
+  "summary_length": "medium"
+}
+```
+
+---
+
+## Streaming Research
 
 ```
-Query
- ↓
-Search Web
- ↓
-Extract Content
- ↓
-Analyze Information
- ↓
+GET /research/stream
+```
+
+Provides:
+
+- Live progress updates
+- Completion response
+
+---
+
+## PDF Export
+
+```
+POST /research/pdf
+```
+
+Returns:
+
+```
+application/pdf
+```
+
+---
+
+# 🔄 Workflow
+
+1. User enters a research topic.
+2. Frontend sends request to backend.
+3. Research Agent starts execution.
+4. Agent searches relevant information.
+5. Content parser extracts useful data.
+6. LLM analyzes collected information.
+7. Structured response is generated.
+8. Results appear in real-time.
+9. User downloads PDF report.
+
+---
+
+# 🧠 Agentic AI Concepts Used
+
+## AI Agents
+
+The system uses an autonomous research agent responsible for:
+
+- Planning research workflow
+- Using external tools
+- Processing gathered information
+- Producing final output
+
+---
+
+## Tool Calling
+
+The agent can interact with external capabilities:
+
+- Web search
+- Content extraction
+- LLM services
+
+---
+
+## Context Processing
+
+Collected information is transformed into meaningful context before generating final answers.
+
+---
+
+## Multi-Step Workflow
+
+The research pipeline follows multiple stages:
+
+```
+Search
+  ↓
+Extract
+  ↓
+Analyze
+  ↓
+Summarize
+  ↓
 Generate Report
 ```
 
 ---
 
-# 🎯 Learning Objectives
-
-This project explores:
-
-- AI Agent fundamentals
-- LLM integration
-- Tool-based AI workflows
-- Web research automation
-- FastAPI API development
-- Building practical AI applications
-
----
-
 # 🔮 Future Improvements
 
-- Add conversation memory
-- Implement RAG pipeline
-- Add vector database integration
-- Add document upload support
-- Build multi-agent collaboration
-- Deploy on cloud platforms
-- Add authentication system
+- Multi-agent collaboration
+- RAG pipeline integration
+- Vector database support
+- Research history
+- User authentication
+- Advanced source ranking
+- Better AI planning capabilities
+- Cloud-based AI workflows
 
 ---
 
-# 👨‍💻 Author
+# 👩‍💻 Author
 
-**Aynn**
+## Aynn Fatima
 
-Full Stack Developer | AI Enthusiast
+Full Stack Developer  
+Agentic AI Engineer
 
 ---
 
+⭐ If you find this project useful, consider giving it a star on GitHub.
 ⭐ If you like this project, consider giving it a star.
